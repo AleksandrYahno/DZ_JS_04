@@ -93,4 +93,43 @@ function showMas() {
   alert(masinp.length);
 }
 
-//Задача 10. Пользователь вводит числа. Если число больше 10, то функция возвращает квадрат числа, если меньше 7 – пишет, что число меньше 7. Если 8, 9 – то возвращает соответственно 7 или 8. Реализуйте решение с несколькими return.
+//    Задача 10. Пользователь вводит числа. Если число больше 10, то функция возвращает квадрат числа, если меньше 7 – пишет, что число меньше 7. Если 8, 9 – то возвращает соответственно 7 или 8. Реализуйте решение с несколькими return.
+
+document.getElementById('num10').onclick = function() {
+  document.getElementById('out101').innerHTML = returnNum();
+}
+
+function returnNum() {
+  var inpnum = document.getElementById('inp10').value;
+  inpnum = parseInt(inpnum);
+  if (inpnum > 10) {
+    return inpnum * inpnum;
+  } else if (inpnum < 7) {
+    return ('число меньше 7');
+  } else {
+    return inpnum;
+  }
+}
+
+//    Задача 11. Напишите игру «Угадай число». При загрузке страницы генерируется случайное число от 0 до 10. Пользователю дается три попытки угадать число (число вводиться в input). При каждой проверке выдается подсказка: больше или меньше. При угадывании, завершении числа попыток выдается оповещение. Количество попыток выводиться на экран.
+
+var prNum, tempOut;
+prNum = Math.floor((Math.random() * 10) + 1);
+// tempOut = document.getElementById('temp-out');
+// tempOut.innerHTML = prNum;
+console.log(prNum);
+
+function funGame() {
+  var num, out;
+
+  num = document.getElementById('mynum').value;
+  out = document.getElementById('out');
+
+  if (num == prNum) {
+    out.innerHTML = 'congratulation';
+  } else if (num > prNum) {
+    out.innerHTML = 'number is MORE than necessary';
+  } else {
+    out.innerHTML = 'number is less than necessary';
+  }
+}
