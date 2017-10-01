@@ -118,8 +118,12 @@ prNum = Math.floor((Math.random() * 10) + 1);
 // tempOut = document.getElementById('temp-out');
 // tempOut.innerHTML = prNum;
 console.log(prNum);
+var i = 3;
+console.log(i);
 
 function funGame() {
+  if (i < 1) return false;
+
   var num, out;
 
   num = document.getElementById('mynum').value;
@@ -132,4 +136,6 @@ function funGame() {
   } else {
     out.innerHTML = 'number is less than necessary';
   }
+  i--;
+  console.log(i);
 }
