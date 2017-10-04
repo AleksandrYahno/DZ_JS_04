@@ -86,11 +86,19 @@ function ageFunc() {
 
 //      Задача 9. Создайте функцию, которая считает длину массива и возвращает ее в виде числа. Массив в функцию передается как аргумент. Если аргумент не задан – выводится сообщение об ошибке.
 
-document.getElementById('masstart').onclick = showMas;
+var mas = ['0', 1, 12, 71, 'test', 223, 81, 'lorem', 'random', 9];
 
 function showMas() {
-  var masinp = document.getElementById('maslong').value;
-  alert(masinp.length);
+  var a = document.getElementById('new');
+  var b = '';
+  for (var i = 0; i < mas.length; i++) {
+    if (mas[i] != undefined) {
+      b += mas[i] + ', ';
+    } else {
+      b += ', ';
+    }
+  }
+  a.innerHTML = (mas.length);
 }
 
 //    Задача 10. Пользователь вводит числа. Если число больше 10, то функция возвращает квадрат числа, если меньше 7 – пишет, что число меньше 7. Если 8, 9 – то возвращает соответственно 7 или 8. Реализуйте решение с несколькими return.
@@ -117,7 +125,7 @@ var prNum, tempOut;
 prNum = Math.floor((Math.random() * 10) + 1);
 // tempOut = document.getElementById('temp-out');
 // tempOut.innerHTML = prNum;
-console.log(prNum);
+console.log(prNum + ' случайное число');
 var i = 3;
 console.log(i);
 
@@ -128,6 +136,7 @@ function funGame() {
 
   num = document.getElementById('mynum').value;
   out = document.getElementById('out');
+  outsproba = document.getElementById('out-sproba');
 
   if (num == prNum) {
     out.innerHTML = 'congratulation';
@@ -137,5 +146,11 @@ function funGame() {
     out.innerHTML = 'number is less than necessary';
   }
   i--;
-  console.log(i);
+  console.log(i + ' количество попыток');
+  outsproba.innerHTML = 'number of attempts ' + i;
+  if (i == 0 && num == prNum) {
+    outsproba.innerHTML = 'congratulation';
+  } else if (i == 0 && num !== prNum) {
+    outsproba.innerHTML = 'you lose';
+  }
 }
